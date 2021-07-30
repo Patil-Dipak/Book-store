@@ -31,16 +31,14 @@
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="/">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"></a>
-                        </li>
+                        
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 Library
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="{% url "store:all_products" %}">All</a></li>
+                                <li><a class="dropdown-item" href="">All</a></li>
                                 {% for c in categories  %}
                                 <li {% if categories.slug == c.slug %} class = "selected" {% endif %} >
                                     <a class="dropdown-item" href="{{ c.get_absolute_url }}"> {{ c.name| title}}</a>
@@ -48,9 +46,9 @@
                                 {% endfor %}
                             </ul>
                         </li>
-                        <li class="nav-item">
+                       <!-- <li class="nav-item">
                             <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                        </li>
+                        </li> -->
                     </ul>
                     <form class="d-flex">
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
