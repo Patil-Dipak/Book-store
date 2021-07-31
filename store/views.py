@@ -3,7 +3,7 @@ from .models import Category, Product
 # Create your views here.
 
 # For return all products information
-def all_products(request):
+def product_all(request):
     products = Product.products.all()   # OR Product.objects.filter(is_active = True)
     return render(request, 'store/home.html', {'products':products})
 
@@ -11,7 +11,7 @@ def all_products(request):
 # For product details
 def product_detail(request, slug):
     product =  get_object_or_404(Product, slug= slug, in_stock = True)
-    return render(request, 'store/product/detail.html', {'product':product})
+    return render(request, 'store/product/single.html', {'product':product})
 
 # For Category List
 def category_list(request,category_slug):
