@@ -2,6 +2,12 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
 
+
+# Return the product if is active
+class Product_manager(models.Manager):
+    def get_queryset(self):
+        return super(Product_manager, self).get_queryset().filter(is_active = True)
+
 # Create your models here.
 
 class Category(models.Model):
@@ -30,6 +36,8 @@ class Product(models.Model):
     is_active = models.BooleanField(default=True)
     created = models.DateField(auto_now_add=True)
     updated = models.DateField(auto_now=True)
+    objects = models.Manager()  # To manage the objects
+    products = Product_manager() # user define manager
 
     class Meta:
         verbose_name_plural = 'Products'
