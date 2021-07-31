@@ -65,7 +65,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 # for show categories function to all templates 
-                'store.views.categories', 
+                'store.context_processor.categories', 
             ],
         },
     },
