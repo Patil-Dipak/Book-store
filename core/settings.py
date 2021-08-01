@@ -68,6 +68,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 # for show categories function to all templates 
                 'store.context_processor.categories', 
+                'basket.context_processor.basket',
             ],
         },
     },
