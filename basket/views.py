@@ -2,6 +2,8 @@ from django.shortcuts import render, get_object_or_404
 
 from .basket import Basket
 
+from django.http import JsonResponse
+
 # Create your views here.
 
 
@@ -14,3 +16,6 @@ def basket_add(request):
         product_id = int(request.POST.get('productid')) # get id from the json code 
         product = get_object_or_404(Product, id = product_id)
         basket.add(product = product)   # called the add method of basket class 
+
+        response = JsonResponse({'test':'data'})
+        return response

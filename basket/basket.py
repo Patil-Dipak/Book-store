@@ -14,3 +14,13 @@ class Basket():
             basket = self.session['skey'] = {} # set blank
 
         self.basket = basket
+    
+    def add(self, product):
+        """
+        Adding and updating the user basket session data 
+        """
+        product_id = product.idc
+
+        if product_id not in self.basket:
+            self.basket[product_id] = {'price': product.price}
+        self.session.modified = True 
