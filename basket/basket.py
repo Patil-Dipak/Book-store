@@ -22,5 +22,5 @@ class Basket():
         product_id = product.idc
 
         if product_id not in self.basket:
-            self.basket[product_id] = {'price': product.price}
+            self.basket[product_id] = {'price': str(product.price)}
         self.session.modified = True 
