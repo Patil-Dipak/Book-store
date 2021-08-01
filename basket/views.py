@@ -19,5 +19,6 @@ def basket_add(request):
         product = get_object_or_404(Product, id = product_id)
         basket.add(product = product, qty = product_qty)   # called the add method of basket class 
 
-        response = JsonResponse({'qty':'product_qty'})
+        basketqty = basket.__len__()
+        response = JsonResponse({'qty':'basketqty'})
         return response
