@@ -11,7 +11,7 @@ class Basket():
 
         # check session is already exist or not
         if 'skey' not in request.session:
-            basket = self.session['skey'] = {'number' : 1112121}
+            basket = self.session['skey'] = {}
 
         self.basket = basket
     
@@ -29,4 +29,4 @@ class Basket():
         """
         Get the basket data and count the qty of items
         """
-        return sum( item['qty'] for item in self.basket.values() )
+        return sum( int(item['qty']) for item in self.basket.values() )
