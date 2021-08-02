@@ -11,7 +11,7 @@ class Basket():
 
         # check session is already exist or not
         if 'skey' not in request.session:
-            basket = self.session['skey'] = {} # set blank
+            basket = self.session['skey'] = {'number' : 1112121}
 
         self.basket = basket
     
@@ -19,7 +19,7 @@ class Basket():
         """
         Adding and updating the user basket session data 
         """
-        product_id = product.idc
+        product_id = product.id
 
         if product_id not in self.basket:
             self.basket[product_id] = {'price': str(product.price), 'qty': int(qty)}
