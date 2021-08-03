@@ -63,13 +63,13 @@
 </main>
 
 <script>
-    $(document).on('click', '#delete-button', function (e) {
+    $(document).on('click', '.delete-button', function (e) {
         e.preventDefault();
         $.ajax({
             type: 'POST',
             url: '{% url "basket:basket_delete" %}',
             data: {
-                productid: $('#delete-button').val(),
+                productid: $(this).data('index'),
                 productqty: $('#select option:selected').text(),
                 csrfmiddlewaretoken: "{{csrf_token}}",
                 action: 'post'
