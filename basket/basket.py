@@ -48,3 +48,5 @@ class Basket():
         
         for item in basket.values():
             item['price'] = Decimal(item['price'])  # convert the str price into decimal
+            item['total_price'] = item['price'] * item['qty']   # added new data into basket total_price
+            yield item
