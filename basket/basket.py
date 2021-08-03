@@ -25,7 +25,8 @@ class Basket():
 
         if product_id not in self.basket:
             self.basket[product_id] = {'price': str(product.price), 'qty': int(qty)}
-        self.session.modified = True 
+        
+        self.save()
 
     def __len__(self):
         """
@@ -63,7 +64,7 @@ class Basket():
 
         if product_id in self.basket:
             del self.basket[product_id]   # For delete the session element
-            self.session.modified = True
+            self.save()
     
     def save(self):     # set true to modified 
         self.session.modified = True
