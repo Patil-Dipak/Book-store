@@ -60,7 +60,7 @@ class Basket():
         """
         delete item from session data
         """
-        product_id = product
+        product_id = str(product)
 
         if product_id in self.basket:
             del self.basket[product_id]   # For delete the session element
