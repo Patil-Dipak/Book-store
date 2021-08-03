@@ -29,3 +29,7 @@ def basket_delete(request):
     if request.POST.get('action') == 'post':  # check for post methods
         product_id = int(request.POST.get('productid')) # get id from the json code
         basket.delete(product = product_id) 
+        #   JsonResponse
+        response = JsonResponse({'Success':True})
+        return response
+
