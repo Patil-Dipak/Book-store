@@ -61,6 +61,6 @@ class Basket():
         """
         product_id = product
 
-        if product_id is self.basket:
+        if product_id in self.basket:
             del self.basket[product_id]   # For delete the session element
             self.session.modified = True
