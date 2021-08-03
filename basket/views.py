@@ -23,3 +23,9 @@ def basket_add(request):
         basketqty = basket.__len__()
         response = JsonResponse({'qty':basketqty})
         return response
+
+def basket_delete(request):
+    basket = Basket(request)    #object of Basket class 
+    if request.POST.get('action') == 'post':  # check for post methods
+        product_id = int(request.POST.get('productid')) # get id from the json code
+        basket.delete(product = product_id) 
