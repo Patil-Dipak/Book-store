@@ -1,3 +1,5 @@
+from store.models import Product    # for the Product tabel
+from decimal import Decimal         # for the Decimal conversion
 
 class Basket():
     """
@@ -44,3 +46,5 @@ class Basket():
         for product in products:
             basket[str(product_id)]['product'] = product    # adding the remaning data of product into basket(session copy veriabel) 
         
+        for item in basket.values():
+            item['price'] = Decimal(item['price'])  # convert the str price into decimal
