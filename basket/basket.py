@@ -64,3 +64,6 @@ class Basket():
         if product_id in self.basket:
             del self.basket[product_id]   # For delete the session element
             self.session.modified = True
+    
+    def save(self):     # set true to modified 
+        self.session.modified = True
