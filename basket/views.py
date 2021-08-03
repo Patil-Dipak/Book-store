@@ -9,7 +9,8 @@ from django.http import JsonResponse
 
 
 def basket_summary(request):
-    return render(request, 'store/basket/summary.html')
+    basket = Basket(request)    # create the object of basket class 
+    return render(request, 'store/basket/summary.html', {'basket' : basket})
 
 def basket_add(request):
     basket = Basket(request)    #object of Basket class 
