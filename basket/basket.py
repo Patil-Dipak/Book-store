@@ -21,11 +21,13 @@ class Basket():
         """
         Adding and updating the user basket session data 
         """
-        product_id = product.id
+        product_id = str(product.id)
 
         if product_id not in self.basket:
             self.basket[product_id] = {'price': str(product.price), 'qty': int(qty)}
-        
+        else:
+            self.basket[product_id]['qty'] = qty
+
         self.save()
 
     def __len__(self):
