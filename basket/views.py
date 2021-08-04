@@ -41,6 +41,8 @@ def basket_update(request):
         product_qty = int(request.POST.get('productqty')) # get qty from the json code
         basket.update(product = product_id, qty = product_qty) 
         #   JsonResponse
-        response = JsonResponse({'Success':True})
+        basketqty = basket.__len__()
+        baskettotal = basket.get_total_price()
+        response = JsonResponse({'qty':basketqty, 'subtotal':baskettotal})
         return response
 
