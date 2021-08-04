@@ -33,3 +33,14 @@ def basket_delete(request):
         response = JsonResponse({'Success':True})
         return response
 
+
+def basket_update(request):
+    basket = Basket(request)    #object of Basket class 
+    if request.POST.get('action') == 'post':  # check for post methods
+        product_id = int(request.POST.get('productid')) # get id from the json code
+        product_qty = int(request.POST.get('productqty')) # get qty from the json code
+        basket.update(product = product_id, qty = product_qty) 
+        #   JsonResponse
+        response = JsonResponse({'Success':True})
+        return response
+
