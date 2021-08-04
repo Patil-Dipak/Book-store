@@ -77,6 +77,8 @@
             },
             success: function (json) {
                 $('.product-item[data-index="' + prodid + '"]').remove();
+                document.getElementById("basket-qty").innerHTML = json.qty
+                document.getElementById("subtotal").innerHTML = json.subtotal
             },
             error: function (xhr, errmsg, err) { }
         });
