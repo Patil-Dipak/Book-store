@@ -82,7 +82,6 @@
         });
     })
 
-    // Update item
     $(document).on('click', '.update-button', function (e) {
         e.preventDefault();
         var prodid = $(this).data('index');
@@ -91,13 +90,13 @@
             url: '{% url "basket:basket_update" %}',
             data: {
                 productid: $(this).data('index'),
-                productqty: $('#select'+ prodid +' option: selected').text(),
+                productqty: $('#select' + prodid + ' option:selected').text(),
                 csrfmiddlewaretoken: "{{csrf_token}}",
-                    action: 'post'
+                action: 'post'
             },
             success: function (json) {
-                document.getElementById('basket-qty').innerHTML = json.qty
-                document.getElementById('subtotal').innerHTML = json.subtotal
+                document.getElementById("basket-qty").innerHTML = json.qty
+                document.getElementById("subtotal").innerHTML = json.subtotal
             },
             error: function (xhr, errmsg, err) { }
         });
