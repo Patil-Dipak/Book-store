@@ -26,3 +26,12 @@ class RegistrationForm(forms.ModelForm):
 
         return user_name    # if count not one then return user_name
 
+    # for Checking the password
+    def clean_password2(self):
+        cd = self.cleaned_data # store the method into cd
+        if cd['password'] != cd['password2']:
+            raise forms.ValidationError("Passwords does not match.")
+        
+        return cd['password2']
+    
+
