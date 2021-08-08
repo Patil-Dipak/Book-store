@@ -33,5 +33,13 @@ class RegistrationForm(forms.ModelForm):
             raise forms.ValidationError("Passwords does not match.")
         
         return cd['password2']
+
+    
+    # for Checking the email
+    def clean_email(self):
+        email = self.cleaned_data['email']
+        if UserBase.objects.filter(email = email).exists():
+            raise forms.ValidationError("Please use another Email, that is already taken")
+        return email
     
 
