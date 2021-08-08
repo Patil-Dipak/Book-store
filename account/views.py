@@ -29,3 +29,8 @@ def account_register(request):
             })
 
             user.email_user(subject = subject, message = message)
+    
+    # method is not Post
+    else:
+        registrationForm = RegistrationForm()
+        return render(request, 'account/registration/register.html', {'form': registrationForm})
