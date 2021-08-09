@@ -1,6 +1,7 @@
 from django import forms
 from .models import UserBase
-
+from django.contrib.auth.forms import (AuthenticationForm, PasswordResetForm,
+                                       SetPasswordForm)
 
 # Registration Form
 class RegistrationForm(forms.ModelForm):
