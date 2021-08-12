@@ -9,7 +9,7 @@ from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
 
 #from orders.views import user_orders
 
-from .forms import RegistrationForm #, UserEditForm
+from .forms import RegistrationForm , UserEditForm
 from .models import UserBase
 from .tokens import account_activation_token
 
@@ -17,6 +17,19 @@ from .tokens import account_activation_token
 def dashboard(request):
     #orders = user_orders(request)
     return render(request, 'account/user/dashboard.html')#,{'section': 'profile', 'orders': orders })
+
+# Edit profile
+@login_required
+def edit_details(request):
+    if request.method == "POST":
+        user_form = UserEditForm(isinstance = request.user, data = request.POST)
+
+        if user_form.is_valid():
+            user_form.save()
+    else:
+        user_form =  UserEditForm(isinstance = request.user)
+    
+    return render(request, 'account/user/edit_details.html', {'user_form': user_form})
 
 def account_register(request):
 
