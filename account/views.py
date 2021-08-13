@@ -18,6 +18,15 @@ def dashboard(request):
     #orders = user_orders(request)
     return render(request, 'account/user/dashboard.html')#,{'section': 'profile', 'orders': orders })
 
+# Delete user
+@login_required
+def delete_user(request):
+    user = UserBase.objects.get(user_name=request.user)
+    user.is_active = False
+    user.save()
+    logout(request)
+    return redirect('account:delete_confirmation')
+
 # Edit profile
 @login_required
 def edit_details(request):
@@ -40,7 +49,6 @@ def account_register(request):
         registerForm = RegistrationForm(request.POST)
         if registerForm.is_valid():
             user = registerForm.save(commit=False)
-            user.email = registerForm.cleaned_data['email']
             user.set_password(registerForm.cleaned_data['password'])
             user.is_active = False
             user.save()
