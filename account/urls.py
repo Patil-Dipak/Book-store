@@ -14,5 +14,5 @@ urlpatterns = [
                                                 form_class=UserLoginForm), name='login'),
         path('logout/', auth_views.LogoutView.as_view(next_page='/account/login/'), name='logout'),
         path('profile/edit/', views.edit_details,  name ='edit_details'),
-
+        path('profile/delete_user/', views.delete_user,  name ='delete_user'),
 ]
