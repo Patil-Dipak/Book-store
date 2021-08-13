@@ -1,4 +1,5 @@
 from django.urls import path
+from django.views.generic.base import TemplateView
 from . import views
 from django.contrib.auth import views as auth_views # for login and logout
 from .forms import (UserLoginForm)
@@ -15,4 +16,5 @@ urlpatterns = [
         path('logout/', auth_views.LogoutView.as_view(next_page='/account/login/'), name='logout'),
         path('profile/edit/', views.edit_details,  name ='edit_details'),
         path('profile/delete_user/', views.delete_user,  name ='delete_user'),
+        path('profile/delete_confirm/', TemplateView.as_view(template_name="account/user/delete_confirm.html"), name='delete_confirmation'),
 ]
