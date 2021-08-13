@@ -2,7 +2,7 @@ from django.urls import path
 from django.views.generic.base import TemplateView
 from . import views
 from django.contrib.auth import views as auth_views # for login and logout
-from .forms import (UserLoginForm)
+from .forms import (UserLoginForm, PwdResetForm)
 
 app_name ='account'
 
