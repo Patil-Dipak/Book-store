@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     # User define app
     'store',
     'basket',
-    'account'
+    'account',
+    'payment',
 ]
 
 MIDDLEWARE = [
